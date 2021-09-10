@@ -32,7 +32,7 @@ function renderSearch() {
         img.id = dataSeries[i].show.id;
 
         if (dataSeries[i].show.image === null) {
-            img.src = 'https://via.placeholder.com/160';
+            img.src = 'https://via.placeholder.com/160x224.png';
         } else {
             img.src = dataSeries[i].show.image.medium;
         }
