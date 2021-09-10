@@ -16,12 +16,13 @@ function handleSearch(event) {
         .then(response => response.json())
         .then((data) => {
             console.log(data);
+            console.log(data[0].show.name);
             let title = document.querySelector('.js_title');
-            title.innerHTML = data[i].name;
+            title.innerHTML = data[0].show.name;
             let img = document.createElement('img');
             document.body.append(img);
             img.style = 'width: 160px';
-            img.src = data.image.medium;
+            img.src = data[0].show.image.medium;
             img.alt = `Foto de ${title}`;
         })
 
