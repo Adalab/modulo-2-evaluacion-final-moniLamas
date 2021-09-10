@@ -2,7 +2,7 @@
 
 const results = document.querySelector('.js_results');
 const input = document.querySelector('.js_input');
-const btn = document.querySelector('.js_btn');
+const button = document.querySelector('.js_btn');
 const showResults = document.querySelector('.js_showResults');
 
 let dataSeries = [];
@@ -44,9 +44,7 @@ function renderSearch() {
 function handleSearch(event) {
     event.preventDefault();
     getFromApi();
-
-
 }
 
 
-btn.addEventListener('click', handleSearch);
+button.addEventListener('click', handleSearch);
