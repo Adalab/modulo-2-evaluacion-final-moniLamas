@@ -1,8 +1,17 @@
 .header {
     font-family: 'Josefin Sans', sans-serif;
-    font-size: 30px;
-    text-align: center;
-    padding: 20px;
     background: linear-gradient(to right, #a8c0ff, #3f2b96);
     color: white;
+    padding: 20px 40px;
+}
+.logo {
+    height: 80px;
+    border-radius: 15px;
+}
+
+.title {
+    float: right;
+    padding-top: 60px;
+    font-size: 30px;
+    text-align: right;
 }
