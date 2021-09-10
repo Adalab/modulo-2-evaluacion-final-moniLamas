@@ -1,6 +1,8 @@
 .page {
     font-family: 'Josefin Sans', sans-serif;
     width: 100%;
+    color: #161616;
+    font-size: 24px;
     
 
     &__search {
@@ -27,6 +29,7 @@
         padding: 20px 60px;
 
         &--title {
+            color: #6E7076;
             font-size: 24px;
             padding: 20px 0;
             text-align: center;
