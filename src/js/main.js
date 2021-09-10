@@ -30,7 +30,6 @@ function renderSearch() {
         newItem.appendChild(img);
         img.style = 'width: 160px';
         img.alt = `Imagen de ${dataSeries[i].show.name}`
-        img.id = dataSeries[i].show.id;
 
         if (dataSeries[i].show.image === null) {
             img.src = 'https://via.placeholder.com/160x224.png';
