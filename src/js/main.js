@@ -26,6 +26,7 @@ function renderSearch() {
         showResults.appendChild(newItem);
         newTitle.innerHTML = dataSeries[i].show.name;
         newItem.appendChild(newTitle);
+        newItem.id = dataSeries[i].show.id;
         newItem.appendChild(img);
         img.style = 'width: 160px';
         img.alt = `Imagen de ${dataSeries[i].show.name}`
