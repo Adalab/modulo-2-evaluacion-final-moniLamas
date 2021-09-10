@@ -1,7 +1,6 @@
 .page {
     font-family: 'Josefin Sans', sans-serif;
     width: 100%;
-    height: 80vh;
     
 
     &__search {
@@ -26,8 +25,30 @@
 
     &__container {
         padding: 20px 60px;
-        display: grid;
-        grid-template-areas: "a b c c";
+
+        &--title {
+            font-size: 24px;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .favourites {
+            background-color: lightpink;
+        }
+        .results {
+            
+            background-color: skyblue;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+
+        @media( min-width: 768px) {
+            display: grid;
+            grid-template-areas: "a b c c";
+            
         
         .favourites {
             grid-area: a;
@@ -37,7 +58,22 @@
         .results {
             grid-area: c;
             background-color: skyblue;
+            
+            &__show {
+                padding: 40px 20px;
+                text-align: center;
+                display: flex;
+                flex-flow: row wrap;
+                justify-content: space-around;
+                
+            }
         }
+        }
+        
     }
+}
+
+.fav {
+    border-radius: 2px solid red;
 }
 
