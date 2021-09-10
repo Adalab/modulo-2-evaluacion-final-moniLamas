@@ -26,15 +26,14 @@ function renderSearch() {
         newTitle.innerHTML = dataSeries[i].show.name;
         newItem.appendChild(newTitle);
         newItem.appendChild(img);
-        img.src = dataSeries[i].show.image.medium;
         img.style = 'width: 160px';
         img.alt = `Imagen de ${dataSeries[i].show.name}`;
 
-        // if (dataSeries[i].show.image === null) {
-        //     return img.src = 'https://via.placeholder.com/160';
-        // } else {
-        //     return img.src = dataSeries[i].show.image.medium;
-        // }
+        if (dataSeries[i].show.image === null) {
+            img.src = 'https://via.placeholder.com/160';
+        } else {
+            img.src = dataSeries[i].show.image.medium;
+        }
     }
 }
 
