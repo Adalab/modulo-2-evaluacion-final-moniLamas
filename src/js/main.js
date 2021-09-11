@@ -55,22 +55,29 @@ button.addEventListener('click', handleSearch);
 //////////////////////////////////////////////
 //Funciones para escuchar y guardar favoritos
 function handleSerie(event) {
+    //añado clase para que destaque la sección de favoritas en los resultados
     event.currentTarget.classList.toggle('fav');
+    //creo un nuevo array de las selecionadas parseando datos de string a número
     const selectedSerie = parseInt(event.currentTarget.id);
+    //busco el objeto que contiene el elemento clicado en dataSeries(datos del json)
     const objectClicked = dataSeries.find((serie) => {
         return serie.show.id === selectedSerie;
     });
+    // busco si la seleccionada está en el array de favoritos.
     const favouritesFound = favourites.findIndex((fav) => {
         return fav.show.id === selectedSerie;
     });
+    //si la paleta no está en favoritos findIndex me ha devuelto -1
     if (favouritesFound === -1) {
+        // añado al array de favoritos
         favourites.push(objectClicked);
+        // si el findIndex me ha devuelto un número mayor o igual a 0 es que sí está en el array de favoritos
+        // quiero sacarlo de array de favoritos
+        // para utilizar splice necesito el índice del elemento que quiero borrar
+        // y quiero borrar un solo elemento por eso colocamos 1
     } else {
         favourites.splice(favouritesFound, 1);
     }
-
-    // classList.toggle('.fav');
-    console.log(favourites);
 }
 
 function listenSeries() {
