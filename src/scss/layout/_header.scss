@@ -2,7 +2,7 @@
     font-family: 'Josefin Sans', sans-serif;
     background: linear-gradient(to right, #a8c0ff, #3f2b96);
     color: white;
-    padding: 20px 40px;
+    padding: 20px 60px;
 }
 .logo {
     height: 80px;
@@ -10,8 +10,11 @@
 }
 
 .title {
-    float: right;
-    padding-top: 60px;
-    font-size: 30px;
+    padding-top: 10px;
+    font-size: 18px;
     text-align: right;
+
+    @media (min-width: 768px){
+        font-size: 30px;
+    }
 }
