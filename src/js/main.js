@@ -42,6 +42,7 @@ function renderSearch() {
             img.src = dataSeries[i].show.image.medium;
         }
     }
+    listenSeries();
 }
 
 function handleSearch(event) {
@@ -53,9 +54,9 @@ button.addEventListener('click', handleSearch);
 
 //Funciones para escuchar y guardar favoritos
 function handleSerie(event) {
-    console.log(event.currentTarget.id);
-    const selectedSerie = event.currentTarget.id;
-    const objectClicked = series.find((serie) => {
+    // console.log(event.currentTarget.id);
+    const selectedSerie = parseInt(event.currentTarget.id);
+    const objectClicked = dataSeries.find((serie) => {
         return serie.id === selectedSerie;
     });
     const favouritesFound = favourites.findIndex((fav) => {
@@ -66,13 +67,15 @@ function handleSerie(event) {
     } else {
         favourites.splice(favouritesFound, 1);
     }
+    event.currentTarget.classList.toggle('.fav');
+    // console.log(favourites);
     renderSearch();
 }
 
 function listenSeries() {
     const listSeries = document.querySelectorAll('.js_serie');
-    console.log(listSeries);
+    // console.log(listSeries);
     for (let serieEl of listSeries) {
-        serieEl.addEventListener('click', handleSerie);
+        serieEl.addEventListener('dblclick', handleSerie);
     }
 }
