@@ -55,7 +55,7 @@
             background-color: #c64fff;
             
             &__show {
-                padding: 0 20px 20px;
+                padding: 0 20px;
                 text-align: center;
                 display: flex;
                 flex-flow: row wrap;
@@ -71,12 +71,20 @@
             justify-content: center;
 
             &__show {
-                padding: 0 20px 20px;
+                margin-bottom: 30px;
                 text-align: center;
                 display: flex;
                 flex-flow: row wrap;
                 justify-content: space-around;
                 row-gap: 40px;
+                :hover {filter: grayscale(80%);}
+
+                .fav {
+                    filter: saturate(180%);
+                    border-radius:5%;
+                    box-shadow: 0px 0px 15px 15px #c64fff;
+                    
+                }
             }
         }
 
@@ -96,8 +104,5 @@
     }
 }
 
-.fav {
-    border-radius: 6px solid red;
-    transition: text-shadow 1s 0.7s ease;
-}
+
 
