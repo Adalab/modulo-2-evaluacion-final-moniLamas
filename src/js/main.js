@@ -7,6 +7,9 @@ const showResults = document.querySelector('.js_showResults');
 
 let dataSeries = [];
 
+/////////////////////////////////////
+//Funciones para escuchar el input, crear response.json y pintar los resultados en la zona de resultados con imagen y título.
+
 function getFromApi() {
     let search = input.value;
     fetch(`http://api.tvmaze.com/search/shows?q=${search}`)
@@ -22,7 +25,6 @@ function renderSearch() {
         const newItem = document.createElement('li');
         const newTitle = document.createElement('h4');
         const img = document.createElement('img');
-        // const id = dataSeries[i].show.id;
         showResults.appendChild(newItem);
         newTitle.innerHTML = dataSeries[i].show.name;
         newItem.appendChild(newTitle);
@@ -39,12 +41,22 @@ function renderSearch() {
     }
 }
 
-
-
 function handleSearch(event) {
     event.preventDefault();
     getFromApi();
 }
 
-
 button.addEventListener('click', handleSearch);
+
+//////////////////////////////////////////////////////
+//Funciones para escuchar y guardar favoritos
+function handleSerie(event) {
+    console.log(event.currentTarget.id);
+}
+
+function listenSeries() {
+    const listSeries = document.querySelectorAll('.js_showResults');
+    for (const serieEl of listSeries) {
+        serieEl.addEventListener('click', handleSerie);
+    }
+}
