@@ -4,6 +4,7 @@
 const input = document.querySelector('.js_input');
 const button = document.querySelector('.js_btn');
 const showResults = document.querySelector('.js_showResults');
+const showFavourites = document.querySelector('.js_showFav');
 
 let dataSeries = [];
 let favourites = [];
@@ -17,20 +18,18 @@ function getFromApi() {
         .then(response => response.json())
         .then((data) => {
             dataSeries = data;
-            renderSearch();
         })
 }
 
 function renderSearch() {
     for (let i = 0; i < dataSeries.length; i++) {
         const newItem = document.createElement('li');
-        newItem.classList.add('js_serie');
         const newTitle = document.createElement('h4');
         const img = document.createElement('img');
+        newItem.classList.add('js_serie');
         showResults.appendChild(newItem);
         newTitle.innerHTML = dataSeries[i].show.name;
         newItem.appendChild(newTitle);
-        newItem.class = 'js_serie';
         newItem.id = dataSeries[i].show.id;
         newItem.appendChild(img);
         img.style = 'width: 160px';
@@ -45,9 +44,34 @@ function renderSearch() {
     listenSeries(); //función para escuchar la selección de favoritas
 }
 
+//Función para pintar los favoritos en su sección
+function renderFavourite() {
+    for (let i = 0; i < favourites.length; i++) {
+        const newItem = document.createElement('li');
+        const newTitle = document.createElement('h4');
+        const img = document.createElement('img');
+        newItem.classList.add('js_serie');
+        showFavourites.appendChild(newItem);
+        newTitle.innerHTML = favourites[i].show.name;
+        newItem.appendChild(newTitle);
+        newItem.id = favourites[i].show.id;
+        newItem.appendChild(img);
+        img.style = 'width: 120px';
+        img.alt = `Imagen de ${favourites[i].show.name}`
+
+        if (dataSeries[i].show.image === null) {
+            img.src = 'https://via.placeholder.com/120.png';
+        } else {
+            img.src = dataSeries[i].show.image.medium;
+        }
+    }
+}
+
 function handleSearch(event) {
     event.preventDefault();
     getFromApi();
+    renderSearch();
+    renderFavourite();
 }
 
 button.addEventListener('click', handleSearch);
@@ -78,7 +102,10 @@ function handleSerie(event) {
     } else {
         favourites.splice(favouritesFound, 1);
     }
+    console.log(favourites);
+
 }
+
 
 function listenSeries() {
     //esta función se ejecutará tras pintar los resultados, para escuchar los eventos de la lista de resultados, esta lista es listSeries
