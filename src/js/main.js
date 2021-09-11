@@ -23,11 +23,13 @@ function getFromApi() {
 function renderSearch() {
     for (let i = 0; i < dataSeries.length; i++) {
         const newItem = document.createElement('li');
+        newItem.classList.add('js_serie');
         const newTitle = document.createElement('h4');
         const img = document.createElement('img');
         showResults.appendChild(newItem);
         newTitle.innerHTML = dataSeries[i].show.name;
         newItem.appendChild(newTitle);
+        newItem.class = 'js_serie'
         newItem.id = dataSeries[i].show.id;
         newItem.appendChild(img);
         img.style = 'width: 160px';
@@ -48,14 +50,26 @@ function handleSearch(event) {
 
 button.addEventListener('click', handleSearch);
 
-//////////////////////////////////////////////////////
 //Funciones para escuchar y guardar favoritos
 function handleSerie(event) {
-    console.log(event.currentTarget.id);
+    console.log(event.currentTarget);
+    const selectedSerie = event.currentTarget.id;
+    const objectClicked = series.find((serie) => {
+        return serie.id === selectedSerie;
+    });
+    const favouritesFound = favourites.findIndex((fav) => {
+        return fav.id === selectedSerie;
+    });
+    if (favouritesFound === -1) {
+        favourites.push(objectClicked);
+    } else {
+        favourites.splice(favouritesFound, 1);
+    }
+    renderSearch();
 }
 
 function listenSeries() {
-    const listSeries = document.querySelectorAll('.js_showResults');
+    const listSeries = document.querySelectorAll('.js_serie');
     for (const serieEl of listSeries) {
         serieEl.addEventListener('click', handleSerie);
     }
