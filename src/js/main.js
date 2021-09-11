@@ -6,6 +6,7 @@ const button = document.querySelector('.js_btn');
 const showResults = document.querySelector('.js_showResults');
 
 let dataSeries = [];
+let favourites = [];
 
 /////////////////////////////////////
 //Funciones para escuchar el input, crear response.json y pintar los resultados en la zona de resultados con imagen y título.
@@ -29,7 +30,7 @@ function renderSearch() {
         showResults.appendChild(newItem);
         newTitle.innerHTML = dataSeries[i].show.name;
         newItem.appendChild(newTitle);
-        newItem.class = 'js_serie'
+        newItem.class = 'js_serie';
         newItem.id = dataSeries[i].show.id;
         newItem.appendChild(img);
         img.style = 'width: 160px';
@@ -52,7 +53,7 @@ button.addEventListener('click', handleSearch);
 
 //Funciones para escuchar y guardar favoritos
 function handleSerie(event) {
-    console.log(event.currentTarget);
+    console.log(event.currentTarget.id);
     const selectedSerie = event.currentTarget.id;
     const objectClicked = series.find((serie) => {
         return serie.id === selectedSerie;
@@ -70,7 +71,8 @@ function handleSerie(event) {
 
 function listenSeries() {
     const listSeries = document.querySelectorAll('.js_serie');
-    for (const serieEl of listSeries) {
+    console.log(listSeries);
+    for (let serieEl of listSeries) {
         serieEl.addEventListener('click', handleSerie);
     }
 }
