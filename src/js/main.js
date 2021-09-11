@@ -55,21 +55,22 @@ button.addEventListener('click', handleSearch);
 //////////////////////////////////////////////
 //Funciones para escuchar y guardar favoritos
 function handleSerie(event) {
-    console.log(event.currentTarget.id);
-    // const selectedSerie = parseInt(event.currentTarget.id);
-    // const objectClicked = dataSeries.find((serie) => {
-    //     return serie.id === selectedSerie;
-    // });
-    // const favouritesFound = favourites.findIndex((fav) => {
-    //     return fav.id === selectedSerie;
-    // });
-    // if (favouritesFound === -1) {
-    //     favourites.push(objectClicked);
-    // } else {
-    //     favourites.splice(favouritesFound, 1);
-    // }
-    // event.currentTarget.classList.toggle('.fav');
-    // console.log(favourites);
+    event.currentTarget.classList.toggle('fav');
+    const selectedSerie = parseInt(event.currentTarget.id);
+    const objectClicked = dataSeries.find((serie) => {
+        return serie.show.id === selectedSerie;
+    });
+    const favouritesFound = favourites.findIndex((fav) => {
+        return fav.show.id === selectedSerie;
+    });
+    if (favouritesFound === -1) {
+        favourites.push(objectClicked);
+    } else {
+        favourites.splice(favouritesFound, 1);
+    }
+
+    // classList.toggle('.fav');
+    console.log(favourites);
 }
 
 function listenSeries() {
@@ -78,6 +79,6 @@ function listenSeries() {
     //listSeries es un array, vamos a recorrer el array con un blucle
     for (const serieEl of listSeries) {
         serieEl.addEventListener('click', handleSerie);
-        //en la zona de resultados indico que se debe hacer click para guardar las favoritas
+        //en la zona de resultados indico que se debe hacer dobleclick para guardar las favoritas
     }
 }
