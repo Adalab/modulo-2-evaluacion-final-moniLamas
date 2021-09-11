@@ -1,6 +1,6 @@
 'use strict';
 
-const results = document.querySelector('.js_results');
+// const results = document.querySelector('.js_results');
 const input = document.querySelector('.js_input');
 const button = document.querySelector('.js_btn');
 const showResults = document.querySelector('.js_showResults');
@@ -42,7 +42,7 @@ function renderSearch() {
             img.src = dataSeries[i].show.image.medium;
         }
     }
-    listenSeries();
+    listenSeries(); //función para escuchar la selección de favoritas
 }
 
 function handleSearch(event) {
@@ -52,30 +52,32 @@ function handleSearch(event) {
 
 button.addEventListener('click', handleSearch);
 
+//////////////////////////////////////////////
 //Funciones para escuchar y guardar favoritos
 function handleSerie(event) {
-    // console.log(event.currentTarget.id);
-    const selectedSerie = parseInt(event.currentTarget.id);
-    const objectClicked = dataSeries.find((serie) => {
-        return serie.id === selectedSerie;
-    });
-    const favouritesFound = favourites.findIndex((fav) => {
-        return fav.id === selectedSerie;
-    });
-    if (favouritesFound === -1) {
-        favourites.push(objectClicked);
-    } else {
-        favourites.splice(favouritesFound, 1);
-    }
-    event.currentTarget.classList.toggle('.fav');
+    console.log(event.currentTarget.id);
+    // const selectedSerie = parseInt(event.currentTarget.id);
+    // const objectClicked = dataSeries.find((serie) => {
+    //     return serie.id === selectedSerie;
+    // });
+    // const favouritesFound = favourites.findIndex((fav) => {
+    //     return fav.id === selectedSerie;
+    // });
+    // if (favouritesFound === -1) {
+    //     favourites.push(objectClicked);
+    // } else {
+    //     favourites.splice(favouritesFound, 1);
+    // }
+    // event.currentTarget.classList.toggle('.fav');
     // console.log(favourites);
-    renderSearch();
 }
 
 function listenSeries() {
+    //esta función se ejecutará tras pintar los resultados, para escuchar los eventos de la lista de resultados, esta lista es listSeries
     const listSeries = document.querySelectorAll('.js_serie');
-    // console.log(listSeries);
-    for (let serieEl of listSeries) {
-        serieEl.addEventListener('dblclick', handleSerie);
+    //listSeries es un array, vamos a recorrer el array con un blucle
+    for (const serieEl of listSeries) {
+        serieEl.addEventListener('click', handleSerie);
+        //en la zona de resultados indico que se debe hacer click para guardar las favoritas
     }
 }
