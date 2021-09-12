@@ -17,6 +17,7 @@ function getFromApi() {
         .then(response => response.json())
         .then((data) => {
             dataSeries = data;
+            renderSearch();
         })
 }
 
@@ -72,7 +73,6 @@ function renderFavourite() {
 function handleSearch(event) {
     event.preventDefault();
     getFromApi();
-    renderSearch();
 }
 
 button.addEventListener('click', handleSearch);
