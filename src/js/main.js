@@ -22,6 +22,7 @@ function getFromApi() {
 }
 
 function renderSearch() {
+    showResults.innerHTML = ''; // vacia el contenido del contenedor
     for (let i = 0; i < dataSeries.length; i++) {
         const newItem = document.createElement('li');
         const newTitle = document.createElement('h4');
@@ -42,8 +43,8 @@ function renderSearch() {
         }
     }
     listenSeries(); //función para escuchar la selección de favoritas
-    renderFavourite(); //función para pintar los favoritos en su sección
 }
+// renderFavourite(); //función para pintar los favoritos en su sección
 
 ///////////////////////////////////////
 //Función para pintar los favoritos en su sección
@@ -137,4 +138,4 @@ function getLocalStorage() {
     }
 }
 
-// getLocalStorage();
+//getLocalStorage();
