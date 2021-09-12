@@ -42,9 +42,10 @@ function renderSearch() {
         }
     }
     listenSeries(); //función para escuchar la selección de favoritas
-    renderFavourite();
+    renderFavourite(); //función para pintar los favoritos en su sección
 }
 
+///////////////////////////////////////
 //Función para pintar los favoritos en su sección
 function renderFavourite() {
     for (let i = 0; i < favourites.length; i++) {
