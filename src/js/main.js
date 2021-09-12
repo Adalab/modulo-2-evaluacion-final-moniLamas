@@ -1,6 +1,5 @@
 'use strict';
 
-// const results = document.querySelector('.js_results');
 const input = document.querySelector('.js_input');
 const button = document.querySelector('.js_btn');
 const showResults = document.querySelector('.js_showResults');
