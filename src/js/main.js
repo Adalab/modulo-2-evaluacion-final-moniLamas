@@ -42,6 +42,7 @@ function renderSearch() {
         }
     }
     listenSeries(); //función para escuchar la selección de favoritas
+    renderFavourite();
 }
 
 //Función para pintar los favoritos en su sección
@@ -65,13 +66,13 @@ function renderFavourite() {
             img.src = dataSeries[i].show.image.medium;
         }
     }
+
 }
 
 function handleSearch(event) {
     event.preventDefault();
     getFromApi();
     renderSearch();
-    renderFavourite();
 }
 
 button.addEventListener('click', handleSearch);
@@ -102,7 +103,8 @@ function handleSerie(event) {
     } else {
         favourites.splice(favouritesFound, 1);
     }
-    console.log(favourites);
+    renderFavourite();
+    setInLocalStorage();
 
 }
 
@@ -113,6 +115,26 @@ function listenSeries() {
     //listSeries es un array, vamos a recorrer el array con un blucle
     for (const serieEl of listSeries) {
         serieEl.addEventListener('click', handleSerie);
-        //en la zona de resultados indico que se debe hacer dobleclick para guardar las favoritas
     }
 }
+
+// LocalStorage
+function setInLocalStorage() {
+    //parseo el array de favourites en string
+    const stringFavourites = JSON.stringify(favourites);
+    //guardo estos datos en local
+    localStorage.setItem('favourites', stringFavourites);
+}
+
+function getLocalStorage() {
+    const localStorageFav = localStorage.getItem('favourites');
+    if (localStorageFav === null) {
+        getFromApi();
+    } else {
+        const arrayFav = JSON.parse(localStorageFav);
+        favourites = arrayFav;
+        renderFavourite();
+    }
+}
+
+getLocalStorage();
