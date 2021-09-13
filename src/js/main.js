@@ -53,7 +53,7 @@ function renderFavourite() {
         const newItem = document.createElement('li');
         const newTitle = document.createElement('h4');
         const img = document.createElement('img');
-        newItem.classList.add('js_serie');
+        // newItem.classList.add('js_serie');
         showFavourites.appendChild(newItem);
         newTitle.innerHTML = favourites[i].show.name;
         newItem.appendChild(newTitle);
@@ -62,10 +62,10 @@ function renderFavourite() {
         img.style = 'width: 120px';
         img.alt = `Imagen de ${favourites[i].show.name}`
 
-        if (dataSeries[i].show.image === null) {
+        if (favourites[i].show.image === null) {
             img.src = 'https://via.placeholder.com/120.png';
         } else {
-            img.src = dataSeries[i].show.image.medium;
+            img.src = favourites[i].show.image.medium;
         }
     }
 
@@ -140,9 +140,10 @@ function getLocalStorage() {
         //si hay datos, los parseo a un array y lo guard oen la variable global
         const arrayFav = JSON.parse(localStorageFav);
         favourites = arrayFav;
+        debugger;
         //cada vez que modifico el array vuelvo a pintar 
         renderFavourite();
     }
 }
 
-//getLocalStorage();
+getLocalStorage();
