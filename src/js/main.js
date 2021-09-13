@@ -48,6 +48,7 @@ function renderSearch() {
 ///////////////////////////////////////
 //Función para pintar los favoritos en su sección
 function renderFavourite() {
+    showFavourites.innerHTML = '';
     for (let i = 0; i < favourites.length; i++) {
         const newItem = document.createElement('li');
         const newTitle = document.createElement('h4');
