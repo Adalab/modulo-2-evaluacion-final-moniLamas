@@ -5,7 +5,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>TV browser</title>
-  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./assets/css/main.css" />
   <link rel="icon" href="./assets/images/logo.png" />
 </head>
@@ -13,27 +15,32 @@
 <body>
   <div class="page">
     <header class="header">
-        <img class="img" src="" alt="">
-        <h1 class="title">TV BROWSER</h1>
-        <h2 class="subtitle">Tu buscador de series</h2>
+        <img class="logo" src="./assets/images/logoTB.png" alt="Logotipo Tv Browser">
+        <h1 class="title">Tu buscador de series</h1>
     </header>
     <main class="page">
         <section class="page__search">
             <label for="search" class="labelSearch">Encuentra tu serie:</label>
-            <input type="text" class="inputSearch" name="search" id="search">
-            <button class="btnSearch">buscar</button>
+            <input type="text" class="inputSearch js_input" name="search" id="search" placeholder="Contiene ...">
+            <button class="btnSearch js_btn">Buscar</button>
         </section>
         <div class="page__container">
-            <aside class="favourites">
-                <h3 class="fav-title">Tus series favoritas</h3>
+            <aside class="favourites js_favourites">
+                <h3 class="page__container--title">Series favoritas</h3>
+                <ul class="favourites__show js_showFav"></ul>
             </aside>
-            <section class="results">
-                <h3>Resultados</h3>
+            <section class="results js_results">
+                <h3 class="page__container--title">Resultado de tu busqueda</h3>
+                <p class="page__container--text">Selecciona tus favoritas con un click</p>
+                <ul class="results__show js_showResults">
+
+                </ul>
             </section>
         </div>
     </main>
     <footer class="footer">
-        <small>tv browser company © 2021</small>
+        <p>tv browser company © 2021</p>
+        <small>Hecho con ritmo <span>&#129304;</span> por Moni Lamas</small>
     </footer>
   </div>
   <script src="./assets/js/main.js"></script>
