@@ -59,7 +59,7 @@
                 padding: 0 20px;
                 text-align: center;
                 display: flex;
-                flex-flow: row wrap;
+                flex-flow: column wrap;
                 justify-content: space-around;
                 row-gap: 40px;
             }
@@ -69,10 +69,10 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
+            // justify-content: center;
 
             &__show {
-                margin-bottom: 30px;
+                font-size: 20px;
                 text-align: center;
                 display: flex;
                 flex-flow: row wrap;
@@ -81,6 +81,7 @@
                 :hover {filter: grayscale(80%);}
 
                 .fav {
+                    text-align: center;
                     filter: saturate(180%);
                     border-radius:5%;
                     box-shadow: 0px 0px 15px 15px #c64fff;
@@ -92,13 +93,13 @@
 
         @media( min-width: 768px) {
             display: grid;
-            grid-template-areas: "a b c c";
+            grid-template-areas: "a b";
         .favourites {
             grid-area: a;
         }
 
         .results {
-            grid-area: c;
+            grid-area: b;
         }
         }
         
