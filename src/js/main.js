@@ -3,11 +3,11 @@
 const input = document.querySelector('.js_input');
 const button = document.querySelector('.js_btn');
 const showResults = document.querySelector('.js_showResults');
-const showFavourites = document.querySelector('.js_showFav');
+const showFavorites = document.querySelector('.js_showFav');
 const resetBtnFav = document.querySelector('js_btnReset');
 
 let dataSeries = [];
-let favourites = [];
+let favorites = [];
 
 /////////////////////////////////////
 //Funciones para escuchar el input, crear response.json y pintar los resultados en la zona de resultados con imagen y título.
@@ -49,24 +49,24 @@ function renderSearch() {
 ///////////////////////////////////////
 //Función para pintar los favoritos en su sección
 function renderFavourite() {
-    showFavourites.innerHTML = '';
-    for (let i = 0; i < favourites.length; i++) {
+    showFavorites.innerHTML = '';
+    for (let i = 0; i < favorites.length; i++) {
         const newItem = document.createElement('li');
         const newTitle = document.createElement('h4');
         const img = document.createElement('img');
         // newItem.classList.add('js_serie');
-        showFavourites.appendChild(newItem);
-        newTitle.innerHTML = favourites[i].show.name;
+        showFavorites.appendChild(newItem);
+        newTitle.innerHTML = favorites[i].show.name;
         newItem.appendChild(newTitle);
-        newItem.id = favourites[i].show.id;
+        newItem.id = favorites[i].show.id;
         newItem.appendChild(img);
         img.style = 'width: 120px';
-        img.alt = `Imagen de ${favourites[i].show.name}`
+        img.alt = `Imagen de ${favorites[i].show.name}`
 
-        if (favourites[i].show.image === null) {
+        if (favorites[i].show.image === null) {
             img.src = 'https://via.placeholder.com/120.png';
         } else {
-            img.src = favourites[i].show.image.medium;
+            img.src = favorites[i].show.image.medium;
         }
     }
 
@@ -91,19 +91,19 @@ function handleSerie(event) {
         return serie.show.id === selectedSerie;
     });
     // busco si la seleccionada está en el array de favoritos.
-    const favouritesFound = favourites.findIndex((fav) => {
+    const favoritesFound = favorites.findIndex((fav) => {
         return fav.show.id === selectedSerie;
     });
     //si la paleta no está en favoritos findIndex me ha devuelto -1
-    if (favouritesFound === -1) {
+    if (favoritesFound === -1) {
         // añado al array de favoritos
-        favourites.push(objectClicked);
+        favorites.push(objectClicked);
         // si el findIndex me ha devuelto un número mayor o igual a 0 es que sí está en el array de favoritos
         // quiero sacarlo de array de favoritos
         // para utilizar splice necesito el índice del elemento que quiero borrar
         // y quiero borrar un solo elemento por eso colocamos 1
     } else {
-        favourites.splice(favouritesFound, 1);
+        favorites.splice(favoritesFound, 1);
     }
     renderFavourite();
     setInLocalStorage();
@@ -123,16 +123,16 @@ function listenSeries() {
 ///////////////////////////////////
 // LocalStorage
 function setInLocalStorage() {
-    //parseo el array de favourites en string
-    const stringFavourites = JSON.stringify(favourites);
+    //parseo el array de favorites en string
+    const stringFavorites = JSON.stringify(favorites);
     //guardo estos datos en local
-    localStorage.setItem('favourites', stringFavourites);
+    localStorage.setItem('favorites', stringFavorites);
 }
 
 //Buscar en localStorage para no hacer petición al servidor cada vez que cargue la página
 function getLocalStorage() {
     //obtenemos lo que hay en el LS
-    const localStorageFav = localStorage.getItem('favourites');
+    const localStorageFav = localStorage.getItem('favorites');
     //comprobar si son datos válidos, si es la primera vez que entro será null
     if (localStorageFav === null) {
         //al no tener datos, llamo a la Api
@@ -140,8 +140,7 @@ function getLocalStorage() {
     } else {
         //si hay datos, los parseo a un array y lo guard oen la variable global
         const arrayFav = JSON.parse(localStorageFav);
-        favourites = arrayFav;
-        debugger;
+        favorites = arrayFav;
         //cada vez que modifico el array vuelvo a pintar 
         renderFavourite();
     }
@@ -150,15 +149,18 @@ function getLocalStorage() {
 
 
 /////////////////
-//Función para escuchar el click del botón de reset
+//Función para escuchar el click del botón de 
+// me dá un error en el addEventListener y me resetea el localStorage al recargar la página. No me ha dado tiempo a encontrar la solución
 
-function handleResetFav(event) {
-    event.preventDefault();
+// function handleResetFav(event) {
+//     event.preventDefault();
+//     favorites = [];
+//     renderFavourite();
+//     setInLocalStorage();
 
-    storage.clear();
-    location.reload();
-}
+// }
 
-resetBtnFav.addEventListener('click', handleResetFav);
+// resetBtnFav.addEventListener('click', handleResetFav);
+//     serieEl.addEventListener('click', handleSerie);
 
 getLocalStorage();
