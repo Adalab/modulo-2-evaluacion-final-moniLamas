@@ -4,6 +4,7 @@ const input = document.querySelector('.js_input');
 const button = document.querySelector('.js_btn');
 const showResults = document.querySelector('.js_showResults');
 const showFavourites = document.querySelector('.js_showFav');
+const resetBtnFav = document.querySelector('js_btnReset');
 
 let dataSeries = [];
 let favourites = [];
@@ -145,5 +146,19 @@ function getLocalStorage() {
         renderFavourite();
     }
 }
+
+
+
+/////////////////
+//Función para escuchar el click del botón de reset
+
+function handleResetFav(event) {
+    event.preventDefault();
+
+    storage.clear();
+    location.reload();
+}
+
+resetBtnFav.addEventListener('click', handleResetFav);
 
 getLocalStorage();
