@@ -155,12 +155,10 @@ function getLocalStorage() {
 // function handleResetFav(event) {
 //     event.preventDefault();
 //     favorites = [];
+//     localStorage.removeItem('favorites');
 //     renderFavourite();
-//     setInLocalStorage();
-
 // }
 
 // resetBtnFav.addEventListener('click', handleResetFav);
-//     serieEl.addEventListener('click', handleSerie);
 
 getLocalStorage();
