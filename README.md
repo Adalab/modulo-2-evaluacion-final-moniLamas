@@ -6,7 +6,11 @@ He diseñado y desarrollado __Tv browser. Tu buscador de series__
 
 ![Tv browser](./docs/assets/images/preview.png "Tv browoser")
 
-## Siguiendo los siguientes requerimientos
+## Enunciado del ejercicio
+<details>
+
+<summary>Requerimientos para ejecutar el ejercicio</summary>
+  
 #### 1. Estructura básica
 En primer lugar hay que realizar una estructura básica sobre este modelo. No hay que preocuparse por las medidas, colores ni tipografía hasta un hito posterior.
 La aplicación de búsqueda de series consta de dos partes:
@@ -37,6 +41,7 @@ Y ya sería fantástico si al final de la lista de favoritos hay un botón para 
 #### 6. BONUS: Afinar la maquetación
 Una vez terminada la parte de interacción, podemos centrarnos en la parte de maquetación donde tenéis libertad para decidir los estilo. En cualquier caso os dejamos una propuesta gráfica.
 
+</details>
 
 ### Construido con
 
