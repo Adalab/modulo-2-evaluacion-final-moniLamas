@@ -3,6 +3,8 @@
     background: linear-gradient(to right, #a8c0ff, #3f2b96);
     color: white;
     padding: 20px 60px;
+    display: grid;
+    grid-template-areas: "a b";
 }
 .logo {
     height: 80px;
@@ -15,6 +17,6 @@
     text-align: right;
 
     @media (min-width: 768px){
-        font-size: 30px;
+        font-size: 20px;
     }
 }
