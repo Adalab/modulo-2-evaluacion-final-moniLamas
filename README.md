@@ -4,6 +4,7 @@
 Desarrollar una aplicación web de búsqueda de series de TV, que nos permite marcar y desmarcar las series como favoritas y guardarlas en local storage.
 
 ## Preview 
+He diseñado y desarrollado __Tv browser. Tu buscador de series__
 ![Tv browser](./docs/assets/images/preview.png "Tv browoser").
 
 ### 1. Estructura básica
