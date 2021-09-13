@@ -44,7 +44,6 @@ function renderSearch() {
     }
     listenSeries(); //función para escuchar la selección de favoritas
 }
-// renderFavourite(); //función para pintar los favoritos en su sección
 
 ///////////////////////////////////////
 //Función para pintar los favoritos en su sección
@@ -119,6 +118,7 @@ function listenSeries() {
     }
 }
 
+///////////////////////////////////
 // LocalStorage
 function setInLocalStorage() {
     //parseo el array de favourites en string
