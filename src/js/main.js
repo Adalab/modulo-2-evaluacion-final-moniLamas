@@ -127,13 +127,19 @@ function setInLocalStorage() {
     localStorage.setItem('favourites', stringFavourites);
 }
 
+//Buscar en localStorage para no hacer petición al servidor cada vez que cargue la página
 function getLocalStorage() {
+    //obtenemos lo que hay en el LS
     const localStorageFav = localStorage.getItem('favourites');
+    //comprobar si son datos válidos, si es la primera vez que entro será null
     if (localStorageFav === null) {
+        //al no tener datos, llamo a la Api
         getFromApi();
     } else {
+        //si hay datos, los parseo a un array y lo guard oen la variable global
         const arrayFav = JSON.parse(localStorageFav);
         favourites = arrayFav;
+        //cada vez que modifico el array vuelvo a pintar 
         renderFavourite();
     }
 }
