@@ -1,13 +1,12 @@
 # modulo-2-evaluacion-final-moniLamas
-## Evaluación final del módulo 2 de Moni Lamas
-
-Desarrollar una aplicación web de búsqueda de series de TV, que nos permite marcar y desmarcar las series como favoritas y guardarlas en local storage.
+## Desarrollar una aplicación web de búsqueda de series de TV, que nos permite marcar y desmarcar las series como favoritas y guardarlas en local storage.
 
 ### Preview 
 He diseñado y desarrollado __Tv browser. Tu buscador de series__
 
-![Tv browser](./docs/assets/images/preview.png "Tv browoser").
+![Tv browser](./docs/assets/images/preview.png "Tv browoser")
 
+## Siguiendo los siguientes requerimientos
 ### 1. Estructura básica
 En primer lugar hay que realizar una estructura básica sobre este modelo. No hay que preocuparse por las medidas, colores ni tipografía hasta un hito posterior.
 La aplicación de búsqueda de series consta de dos partes:
