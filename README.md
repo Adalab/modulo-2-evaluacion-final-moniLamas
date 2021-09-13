@@ -47,52 +47,27 @@ Una vez terminada la parte de interacción, podemos centrarnos en la parte de ma
 
 ## Comenzando
 
-Este es un ejemplo de cómo puede dar instrucciones para configurar su proyecto localmente.
-Para poner en marcha una copia local siga estos sencillos pasos de ejemplo.
-
 ### Prerrequisitos
 
 Este es un ejemplo de cómo listar las cosas que necesitas para usar el software y cómo instalarlas.
 ### npm
-  ``sh
-  npm install npm@latest -g
-  ```
+Instalar npm en su terminal, siguiendo las instrucciones detalladas en la página oficial de [Node](https://nodejs.org/es/download/)
 
 ### Instalación
 
-1. Obtenga una clave de API gratuita en [https://example.com](https://example.com)
-2. Clona el repo
+1. Clona el repo
    ```sh
-   git clone https://github.com/your_username_/Project-Name.git
+   git clone https://github.com/Adalab/modulo-2-evaluacion-final-moniLamas.git
    ```
-3. Instalar los paquetes NPM
+2. Instalar los paquetes NPM
    ```sh
    npm install
    ```
-4. Introduzca su API en `config.js`
-   ``JS
-   const API_KEY = 'Introduzca su API';
-   ```
+3. Ejecutar el comando para visualizar en su navegador 
+   ```sh
+   npm start
+   ```   
 
-
-
-<!-- EJEMPLOS DE USO -->
-## Uso
-
-Utilice este espacio para mostrar ejemplos útiles de cómo se puede utilizar un proyecto. Capturas de pantalla adicionales, ejemplos de código y demos funcionan bien en este espacio. También puede enlazar a más recursos.
-
-Para más ejemplos, consulte la [Documentación](https://example.com)_
-
-
-
-<BR /><BR />HOJA DE RUTA -->
-## Hoja de ruta
-
-Consulta la [open issues](https://github.com/othneildrew/Best-README-Template/issues) para ver una lista de características propuestas (y problemas conocidos).
-
-
-
-<!-- CONTRIBUIR -->
 ## Contribuir
 
 Las contribuciones son lo que hace que la comunidad de código abierto sea un lugar increíble para aprender, inspirar y crear. Cualquier contribución que hagas es **muy apreciada**.
@@ -104,19 +79,12 @@ Las contribuciones son lo que hace que la comunidad de código abierto sea un lu
 5. Abrir un Pull Request
 
 
-
-<!-- LICENCIA -->
 ## Licencia
 
 Distribuido bajo la licencia MIT. Ver `LICENSE` para más información.
 
 
-
-<!-- CONTACTO -->
 ## Contacto
 
-Su nombre - [@su_twitter](https://twitter.com/your_username) - email@example.com
+Estoy disponible en Twitter - [Moni Lamas](https://twitter.com/MoniMonipeny) 
 
-Enlace del proyecto: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
-
-Traducción realizada con la versión gratuita del traductor www.DeepL.com/Translator
