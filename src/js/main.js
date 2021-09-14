@@ -4,7 +4,8 @@ const input = document.querySelector('.js_input');
 const button = document.querySelector('.js_btn');
 const showResults = document.querySelector('.js_showResults');
 const showFavorites = document.querySelector('.js_showFav');
-const resetBtnFav = document.querySelector('js_btnReset');
+const resetBtnFav = document.querySelector('.js_btnReset');
+const lookFav = document.querySelector('.btnFav');
 
 let dataSeries = [];
 let favorites = [];
@@ -27,15 +28,20 @@ function renderSearch() {
     for (let i = 0; i < dataSeries.length; i++) {
         const newItem = document.createElement('li');
         const newTitle = document.createElement('h4');
+        const status = document.createElement('p');
+        const textStatus = document.createTextNode(dataSeries[i].show.status);
+        status.appendChild(textStatus);
         const img = document.createElement('img');
         newItem.classList.add('js_serie');
         showResults.appendChild(newItem);
         newTitle.innerHTML = dataSeries[i].show.name;
         newItem.appendChild(newTitle);
+        newItem.appendChild(status);
         newItem.id = dataSeries[i].show.id;
         newItem.appendChild(img);
         img.style = 'width: 160px';
-        img.alt = `Imagen de ${dataSeries[i].show.name}`
+        img.alt = `Imagen de ${dataSeries[i].show.name}`;
+
 
         if (dataSeries[i].show.image === null) {
             img.src = 'https://via.placeholder.com/160x224.png';
@@ -146,6 +152,22 @@ function getLocalStorage() {
     }
 }
 
+
+/////////
+
+function handleLookFav(event) {
+    event.preventDefault();
+    for (const i of favorites) {
+        console.log(i.show.name);
+    }
+
+
+
+}
+
+
+
+lookFav.addEventListener('click', handleLookFav);
 
 
 /////////////////
