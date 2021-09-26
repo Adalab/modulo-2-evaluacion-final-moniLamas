@@ -144,7 +144,6 @@ function getLocalStorage() {
 
 /////////////////
 //Función para escuchar el click del botón de
-// me dá un error en el addEventListener y me resetea el localStorage al recargar la página. No me ha dado tiempo a encontrar la solución
 
 function handleResetFav(event) {
   event.preventDefault();
